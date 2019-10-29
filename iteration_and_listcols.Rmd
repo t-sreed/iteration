@@ -1,0 +1,43 @@
+---
+title: "iteration_and_listcols"
+author: "Tanu"
+date: "10/29/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+
+set.seed(1)
+```
+
+```{r}
+l = list(vec_numeric = 5:8,
+         mat         = matrix(1:8, 2, 4),
+         vec_logical = c(TRUE, FALSE),
+         summary     = summary(rnorm(1000)))
+l$vec_numeric
+```
+
+```{r}
+df = list(
+  a = rnorm(20, 3, 1),
+  b = rnorm(20, 0, 5),
+  c = rnorm(20, 10, .2),
+  d = rnorm(20, 3, 1)
+)
+```
+
+```{r}
+output([[1]]) = vector("list", length = 4)
+```
+
+```{r}
+output = vector("list", length = 4)
+
+for (i in 1:4) {
+  output[[1]] = mean_and_sd (df[[1]])
+}
+```
+
